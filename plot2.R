@@ -11,7 +11,7 @@
 # Read the data from Internet
 url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 local.zip.file <- "household_power_consumption.zip"
-local.file <- "household_power_consumption2.txt"
+local.file <- "household_power_consumption.txt"
 
 if (!file.exists(local.file)) {
         download.file(url, local.zip.file)
@@ -62,10 +62,10 @@ dummy <- dt[, 3:9 := lapply(dt[, 3:9, with = F], as.numeric), with = F]
 ###########
 
 # Plot 2
-# Plot on screen, then copy to PNG
+# Plot directly on PNG
 # Create a date/time value via lubridate functions. This automatically plots nicely with weekday names.
 dummy <- dt[, date.time := dmy(Date) + hms(Time)]
+png(filename = "plot2.png") # png() creates by default 480x480 pixel
 plot(dt[, list(date.time, Global_active_power)],
      type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
-dev.copy(png, filename = "plot2.png") # png() creates by default 480x480 pixel
 dev.off()

@@ -11,7 +11,7 @@
 # Read the data from Internet
 url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 local.zip.file <- "household_power_consumption.zip"
-local.file <- "household_power_consumption2.txt"
+local.file <- "household_power_consumption.txt"
 
 if (!file.exists(local.file)) {
         download.file(url, local.zip.file)
@@ -62,7 +62,7 @@ dummy <- dt[, 3:9 := lapply(dt[, 3:9, with = F], as.numeric), with = F]
 ###########
 
 # Plot 1
-# Plot on screen, then copy to PNG
+# Plot directly to png
+png(filename = "plot1.png") # png() creates by default 480x480 pixel
 hist(dt[, Global_active_power], main = "Global Active Power", col = "red", xlab = "Global Active Power (kilowatts)")
-dev.copy(png, filename = "plot1.png") # png() creates by default 480x480 pixel
 dev.off()

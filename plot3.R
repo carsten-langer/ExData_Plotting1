@@ -11,7 +11,7 @@
 # Read the data from Internet
 url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 local.zip.file <- "household_power_consumption.zip"
-local.file <- "household_power_consumption2.txt"
+local.file <- "household_power_consumption.txt"
 
 if (!file.exists(local.file)) {
         download.file(url, local.zip.file)
