@@ -1,3 +1,5 @@
+This project was used for Coursera Data Science course, now it is archived.
+
 ## Introduction
 
 This assignment uses data from
